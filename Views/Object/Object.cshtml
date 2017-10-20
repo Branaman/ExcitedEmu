@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Objects Page";
+}
+<div>
+    @{
+        foreach(var error in ViewBag.errors)
+        {
+            if(@error.Errors.Count > 0)
+            {
+                <p>@error.Errors[0].ErrorMessage</p>
+            }
+        }
+    }
+</div>
+<h1>Add a new object</h1>
+<form action="/addobject" method="post">
+    <label for="objectname">Name:</label>
+    <input type="text" name="name" id="objectname" value="">
+    <label for="objectimage">Image (url):</label>
+    <input type="text" name="image" id="objectimage" value="http://">
+    <label for="objectdescription">Description:</label>
+    <input type="text" name="description" id="objectdescription" value="">
+    <label for="objectquantity">Initial Quantity:</label>
+    <input type="number" name="quantity" id="objectquantity" value="">
+    <input type="submit" value="Create">
+</form>
+<h1>All objects</h1>
+    @foreach(var object in @ViewBag.Allobjects)
+    {
+        <div class="object">
+            <h3>@object.name</h3>
+            <img src="@object.image">
+            <p>(@object.quantity left)</p>
+        </div>
+    }
