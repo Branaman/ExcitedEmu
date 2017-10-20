@@ -98,7 +98,7 @@ namespace ExcitedEmu.Controllers
                 if (HttpContext.Session.GetString("loggedIn")=="true")
                 {
                     int IDresult = ActivityFactory.AddActivity(Activity,(int)HttpContext.Session.GetInt32("userID"));                  
-                    return RedirectToAction("Home");
+                    return RedirectToAction("Show", new {activityID = IDresult});
                 }
             }
             ViewBag.errors = ModelState.Values;

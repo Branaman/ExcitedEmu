@@ -22,7 +22,7 @@ namespace ExcitedEmu.Factories {
             {
                 using(IDbCommand command = dbConnection.CreateCommand())
                 {
-                    string query = $"SELECT activities.title, activities.date, activities.duration, users.first_name as coordinator, users.idusers as coordinatorID, activities.participants, activities.idactivities FROM users LEFT OUTER JOIN activities ON users.idusers = activities.users_idusers where idactivities > 0";
+                    string query = $"SELECT activities.title, activities.date, activities.duration, users.first_name as coordinator, users.idusers as coordinatorID, activities.participants, activities.idactivities FROM users LEFT OUTER JOIN activities ON users.idusers = activities.users_idusers where idactivities > 0 order by date";
                     dbConnection.Open();
                     return dbConnection.Query<JoinResult>(query).ToList();
                 }
