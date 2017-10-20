@@ -72,12 +72,14 @@ namespace ExcitedEmu.Controllers
             {
                     HttpContext.Session.SetInt32("userID", check.idusers);
                     HttpContext.Session.SetString("loggedIn", "true");
-                    return RedirectToAction("Products","Products");    
+                    return RedirectToAction("Home","Activity");    
             }
+            ViewBag.loggedIn = false;
             ModelState.AddModelError("incorrectLogin","Incorrect Username or Password");
             ViewBag.errors = ModelState.Values;
             return View("Index");     
         }
+        ViewBag.loggedIn = false;
         ViewBag.errors = ModelState.Values;
         return View("Index");
         }

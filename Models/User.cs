@@ -4,8 +4,8 @@ namespace ExcitedEmu.Models
     public class User : BaseEntity
     {
         [Required]
-        [MinLength(3)]
-        public string username { get; set; }
+        [EmailAddress]
+        public string email { get; set; }
         [Required(ErrorMessage = "Confirm Password is required")]
         [StringLength(16, ErrorMessage = "Password must be between 5 and 16 characters", MinimumLength = 5)]
         [DataType(DataType.Password)]
@@ -18,8 +18,11 @@ namespace ExcitedEmu.Models
     public class RegisterUser : User
     {
         [Required]
-        [EmailAddress]
-        public string email { get; set; }
+        [MinLength(2)]
+        public string first_name { get; set; }
+        [Required]
+        [MinLength(3)]
+        public string last_name { get; set; }
         [Required(ErrorMessage = "Confirm Password is required")]
         [StringLength(16, ErrorMessage = "Confirm Password must be between 5 and 15 Characters", MinimumLength = 5)]
         [DataType(DataType.Password)]

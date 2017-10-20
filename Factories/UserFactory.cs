@@ -20,7 +20,7 @@ namespace ExcitedEmu.Factories {
         public LoginUser GetUser(LoginUser User) {
                 using(IDbConnection dbConnection = Connection)
                 {
-                    string query = $"SELECT * FROM users WHERE username = @username";
+                    string query = $"SELECT * FROM users WHERE email = @email";
                     using(IDbCommand command = dbConnection.CreateCommand())
                     {
                         dbConnection.Open();
@@ -31,7 +31,7 @@ namespace ExcitedEmu.Factories {
         public string AddUser(RegisterUser User){
             using (IDbConnection dbConnection = Connection)
             {
-                string query = $"INSERT INTO users (username, email, password, created_at) VALUES (@username,@email,@password, @created_at)";
+                string query = $"INSERT INTO users (first_name, last_name, email, password, created_at) VALUES (@first_name,@last_name,@email,@password, @created_at)";
                 dbConnection.Open();
                 try
                 {

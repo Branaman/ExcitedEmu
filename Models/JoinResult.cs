@@ -7,10 +7,20 @@ namespace ExcitedEmu.Models
     public class JoinResult : BaseEntity
     {
         [Required]
-        public string name { get; set; }
+        public string description { get; set; }
         [Required]
-        public string username { get; set; }
+        public string title { get; set; }
         [Required]
-        public int quantity {get;set;}
+        public DateTime date { get; set; }
+        [Required]
+        public string duration {get;set;}
+        [Required]
+        public string coordinator {get;set;}
+        public int coordinatorID {get;set;}
+        
+        [Required]
+        public int idactivities {get;set;}
+        [Required]
+        public int participants {get;set;}
     }
 }

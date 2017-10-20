@@ -12,7 +12,7 @@ namespace ExcitedEmu
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ObjectFactory>();
+            services.AddScoped<ActivityFactory>();
             services.AddScoped<UserFactory>();
             services.AddMvc();
             services.AddSession();

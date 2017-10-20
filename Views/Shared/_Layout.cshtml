@@ -9,6 +9,7 @@
 </head>
 <body>
     <div>
+        <h1>Dojo Activity Center</h1>
         @{
             if(ViewBag.loggedIn){
                 <a href="/logout">Logout</a>
@@ -17,8 +18,7 @@
                 <a href="">Log In</a>
             }
         }
-        <a href="/products">Products</a>
-        <a href="/orders">Orders</a>
+        <a href="/Home">Home</a>
     </div>
     <div class="container body-content">
         @RenderBody()
